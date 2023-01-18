@@ -59,7 +59,7 @@ def main():
             indexed_percent = (indexed_count/total) * 100
             not_indexed_percent = (not_indexed_count/total) * 100
             chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
-            st.bar_chart(chart_data)
+            st.pie_chart(chart_data)
         except:
             st.write("Invalid file format")
     else:
@@ -75,7 +75,7 @@ def main():
         indexed_percent = (indexed_count/total) * 100
         not_indexed_percent = (not_indexed_count/total) * 100
         chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
-        st.bar_chart(chart_data)
+        st.pie_chart(chart_data)
 
 if __name__ == "__main__":
     main()
