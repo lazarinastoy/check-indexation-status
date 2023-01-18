@@ -30,11 +30,11 @@ def main():
                 remaining_time = ((time.time() - start_time) / (i+1)) * (total_urls - (i+1))
                 st.progress(progress)
                 st.write(f"Time remaining: {round(remaining_time, 2)} seconds")
-        except:
-            st.write("Invalid file format")
-            else:
-                url_input = st.text_input("Enter a single URL")
-                st.write(f"{url_input}: {is_page_indexed(url_input)}")
+                except:
+                    st.write("Invalid file format")
+        else:
+            url_input = st.text_input("Enter a single URL")
+            st.write(f"{url_input}: {is_page_indexed(url_input)}")
 
 if __name__ == "__main__":
     main()
