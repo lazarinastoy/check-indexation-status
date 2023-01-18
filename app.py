@@ -61,8 +61,11 @@ def main():
         total = indexed_count + not_indexed_count
         indexed_percent = (indexed_count/total) * 100
         not_indexed_percent = (not_indexed_count/total) * 100
-        chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
-        st.pie_chart(chart_data)
+        if not indexed_count and not_indexed_count:
+            st.warning('No indexed page')
+        else:
+            chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
+            st.pie_chart(chart_data)
 
 if __name__ == "__main__":
     main()
