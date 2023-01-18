@@ -4,7 +4,6 @@ import requests
 import time
 import io
 from collections import Counter
-import plotly.graph_objs as go
 
 def is_page_indexed(url):
     url = "https://www.google.com/search?q=site:"+url
@@ -46,9 +45,8 @@ def main():
             total = indexed_count + not_indexed_count
             indexed_percent = (indexed_count/total) * 100
             not_indexed_percent = (not_indexed_count/total) * 100
-            chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
-            fig = go.Figure(data=[go.Pie(labels=chart_data.index, values=chart_data['Indexed'])])
-            st.plotly_chart(fig)
+            st.write("Indexed URLs: {:.2f}% of total URLs".format(indexed_percent))
+            st.write("Non-Indexed URLs: {:.2f}% of total URLs".format(not_indexed_percent))
         except:
             st.write("Invalid file format")
     else:
@@ -66,9 +64,8 @@ def main():
         if not indexed_count and not_indexed_count:
             st.warning('No indexed page')
         else:
-            chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
-            fig = go.Figure(data=[go.Pie(labels=chart_data.index, values=chart_data['Indexed'])])
-            st.plotly_chart(fig)
+            st.write("Indexed URLs: {:.2f}% of total URLs".format(indexed_percent))
+            st.write("Non-Indexed URLs: {:.2f}% of total URLs".format(not_indexed_percent))
 
 if __name__ == "__main__":
     main()
