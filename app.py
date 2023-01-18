@@ -64,8 +64,7 @@ def main():
             st.write("Invalid file format")
     else:
         url_input = st.text_input("Enter a single URL")
-        st.write(f"{
-        url_input}: {is_page_indexed(url_input)}")
+        st.write(f"{url_input}: {is_page_indexed(url_input)}")
         indexed_count = 0
         not_indexed_count = 0
         if is_page_indexed(url_input) == 'URL is Indexed':
