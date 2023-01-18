@@ -21,7 +21,6 @@ def main():
 
     if uploaded_file is not None:
         try:
-            uploaded_file.seek(0)
             df = pd.read_csv(io.StringIO(uploaded_file.decode('utf-8')))
             total_urls = len(df)
             start_time = time.time()
