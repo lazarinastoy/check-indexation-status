@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import time
+import io
 
 def is_page_indexed(url):
     url = "https://www.google.com/search?q=site:"+url
