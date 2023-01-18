@@ -52,5 +52,4 @@ def main():
                 });
                 </script>
             """, unsafe_allow_html=True)
-            st.bar_chart
-
+           
