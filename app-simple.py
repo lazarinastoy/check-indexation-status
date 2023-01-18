@@ -32,9 +32,9 @@ def main():
                 st.write(f"Time remaining: {round(remaining_time, 2)} seconds")
         except:
             st.write("Invalid file format")
-     else:
-        url_input = st.text_input("Enter a single URL")
-        st.write(f"{url_input}: {is_page_indexed(url_input)}")
+    else:
+       url_input = st.text_input("Enter a single URL")
+       st.write(f"{url_input}: {is_page_indexed(url_input)}")
 
 if __name__ == "__main__":
     main()
