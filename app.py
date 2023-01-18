@@ -16,7 +16,7 @@ def is_page_indexed(url):
 def main():
     st.set_page_config(page_title="URL Index Checker", page_icon=":guardsman:", layout="wide")
     st.title("URL Index Checker")
-    st.markdown("Upload a CSV file containing a list of URLs to check the indexation status.")
+    st.markdown("Upload a CSV file containing a list of URLs to check the indexation status. Note, the column containing the URLs should be titled 'url'")
     uploaded_file = st.file_uploader("Upload a CSV file containing a list of URLs", type=["csv"])
 
     if uploaded_file is not None:
