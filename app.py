@@ -4,6 +4,7 @@ import requests
 import time
 import io
 from collections import Counter
+import plotly.graph_objs as go
 
 def is_page_indexed(url):
     url = "https://www.google.com/search?q=site:"+url
@@ -46,7 +47,8 @@ def main():
             indexed_percent = (indexed_count/total) * 100
             not_indexed_percent = (not_indexed_count/total) * 100
             chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
-            st.pie_chart(chart_data)
+            fig = go.Figure(data=[go.Pie(labels=chart_data.index, values=chart_data['Indexed'])])
+            st.plotly_chart(fig)
         except:
             st.write("Invalid file format")
     else:
@@ -65,10 +67,12 @@ def main():
             st.warning('No indexed page')
         else:
             chart_data = pd.DataFrame({'Indexed':[indexed_percent, not_indexed_percent]},index = ['Indexed','Not Indexed'])
-            st.pie_chart(chart_data)
+            fig = go.Figure(data=[go.Pie(labels=chart_data.index, values=chart_data['Indexed'])])
+            st.plotly_chart(fig)
 
 if __name__ == "__main__":
     main()
+
 
 
 
